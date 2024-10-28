@@ -4,7 +4,7 @@ fun main() {
     print("Enter the array: ")
     var input = readlnOrNull() //input can be: "3 7 1 2 6 4" or "[3, 7, 1, 2, 6, 4]"
 
-    while (input == null || input.isEmpty()) {
+    while (input.isNullOrEmpty()) {
         print("Please enter the array for calculation: ")
         input = readlnOrNull()
     }
@@ -17,9 +17,7 @@ fun main() {
         .map { it.toInt() } //convert all the value to Int
         .toTypedArray()
 
-    val result = findMissingNumber(numberArr)
-
-    when(result){
+    when(val result = findMissingNumber(numberArr)){
         -1 -> println("Something wrong occur, please try again later")
         0 -> println("There is no missing number in this array")
         else -> println("Missing number in this array is: $result")
@@ -35,9 +33,8 @@ fun findMissingNumber(arr: Array<Int>) : Int {
         }
 
         val inputArrSum = arr.sum()//this is the sum of the input array
-        val result = expectedSum - inputArrSum
 
-        when(result){
+        when(val result = expectedSum - inputArrSum){
             n + 1 -> return 0 //when expectedSum - inputArrSum = n + 1, it means that input the array is not missing any number
             else -> return result
         }
