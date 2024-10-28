@@ -34,9 +34,9 @@ fun findMissingNumber(arr: Array<Int>) : Int {
 
         val inputArrSum = arr.sum()//this is the sum of the input array
 
-        when(val result = expectedSum - inputArrSum){
-            n + 1 -> return 0 //when expectedSum - inputArrSum = n + 1, it means that input the array is not missing any number
-            else -> return result
+        return when(val result = expectedSum - inputArrSum){
+            n + 1 -> 0 //when expectedSum - inputArrSum = n + 1, it means that input the array is not missing any number
+            else -> result
         }
     }
     return -1 //return -1 when something wrong occur (format, null, runtime errors, ...)
